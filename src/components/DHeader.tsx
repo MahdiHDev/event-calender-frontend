@@ -42,7 +42,7 @@ const DHeader = () => {
                     <div>
                         <h1 className="font-medium group-hover:text-primary duration-300">
                             {/* {user?.fullName} */}
-                            John Doe
+                            Shakil The Je
                         </h1>
                         <p className="text-sm text-[#7A7A7A]">
                             {/* {user?.email} */}
