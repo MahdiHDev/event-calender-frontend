@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Calendar } from "../components/ui/calendar";
+import { useNavigate } from "react-router";
+import { Calendar } from "../../components/ui/calendar";
 
-const Events = () => {
+const EditEvents = () => {
     const [date, setDate] = useState<Date | undefined>(new Date());
     const [value, setValue] = useState("");
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (textareaRef.current) {
@@ -18,7 +20,7 @@ const Events = () => {
     return (
         <div>
             <h2 className="font-semibold text-2xl text-primary mb-6">
-                Create Event
+                Edit Event
             </h2>
 
             <form>
@@ -102,7 +104,14 @@ const Events = () => {
                             type="submit"
                             className="bg-primary text-white cursor-pointer duration-300 px-4 py-2 rounded-md hover:bg-[#054C8C]"
                         >
-                            Create Event
+                            Edit Event
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => navigate(-1)}
+                            className="ml-2 bg-gray-500 text-white cursor-pointer duration-300 px-4 py-2 rounded-md hover:bg-gray-600"
+                        >
+                            Cancel
                         </button>
                     </div>
                     <div className="w-1/3 px-4">
@@ -116,7 +125,7 @@ const Events = () => {
                             mode="single"
                             selected={date}
                             onSelect={setDate}
-                            className="rounded-md border shadow-sm w-full"
+                            className="rounded-md border shadow-sm w-[90%] mx-auto"
                             captionLayout="dropdown"
                         />
                     </div>
@@ -126,4 +135,4 @@ const Events = () => {
     );
 };
 
-export default Events;
+export default EditEvents;
